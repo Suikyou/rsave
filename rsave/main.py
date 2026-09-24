@@ -1,17 +1,13 @@
 from pathlib import Path
 
 
-save_directory = (input("Enter save directory: "))
+save_directory = Path(input("Enter save directory: ").strip('"'))
 
-stripped_input = save_directory.strip('"')
-
-stripped_path = Path
-
-if stripped_path.is_dir():
+if save_directory.is_dir():
     print("Directory. END")
-    for file in stripped_path.iterdir():
+    for file in save_directory.iterdir():
         print(file.name)
-elif stripped_path.is_file():
+elif save_directory.is_file():
     print("File. END")
 else:
     print("Does not exist or invalid input")
